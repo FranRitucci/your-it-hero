@@ -1,8 +1,8 @@
 function agregarContacto() {
     // Datos del nuevo contacto
-    var nuevoNombre = "Sebastian Fontana";
-    var nuevoNumero = "+1 786-618-4924";
-    var nuevoEmail = "sebastianfontana@yourithero.com";
+    var nuevoNombre = "Nuevo Contacto";
+    var nuevoNumero = "9876543210";
+    var nuevoEmail = "nuevo@example.com";
 
     // Crear el enlace 'tel:' con el número de teléfono del nuevo contacto
     var enlaceTelefono = "tel:" + nuevoNumero + ";";
