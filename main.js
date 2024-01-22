@@ -1,13 +1,25 @@
-function agregarContacto() {
+function descargarVCard() {
     // Datos del nuevo contacto
     var nuevoNombre = "Sebastian Fontana";
-    var nuevoNumero = "1 7866184924";
+    var nuevoNumero = "+1 786-618-4924";
     var nuevoEmail = "sebastianfontana@yourithero.com";
 
-    // Crear el enlace 'tel:' con el número de teléfono del nuevo contacto
-    var enlaceTelefono = "tel:" + nuevoNumero + ";";
+    // Crear el contenido del archivo vCard
+    var vCardData = "BEGIN:VCARD\n" +
+                    "VERSION:3.0\n" +
+                    "FN:" + nuevoNombre + "\n" +
+                    "TEL:" + nuevoNumero + "\n" +
+                    "EMAIL:" + nuevoEmail + "\n" +
+                    "END:VCARD";
 
-    // Abrir la libreta de contactos del teléfono con los datos predefinidos
-    window.location.href = enlaceTelefono + "name=" + encodeURIComponent(nuevoNombre) +
-        "&email=" + encodeURIComponent(nuevoEmail);
+    // Crear un Blob con el contenido del vCard
+    var blob = new Blob([vCardData], { type: 'text/vcard' });
+
+    // Crear un enlace de descarga para el usuario
+    var link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = 'contacto.vcf';
+
+    // Hacer clic en el enlace para iniciar la descarga
+    link.click();
 }
